@@ -1,6 +1,7 @@
 # v1.0.8
 
-
+- Transparent View Button option
+- Level Page BG
 
 # v1.0.7
 - Buggy zooming and thumbnail popup bugfixes
