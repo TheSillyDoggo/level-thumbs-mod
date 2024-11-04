@@ -87,6 +87,26 @@ class $modify(MyLevelCell, LevelCell) {
         schedule(m_fields->m_parentCheck);
 
         retain();
+
+        if (auto view = typeinfo_cast<CCMenuItemSpriteExtra*>(getChildByIDRecursive("view-button")))
+        {
+            auto btn = as<ButtonSprite*>(view->getNormalImage());
+
+            btn->m_BGSprite->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+            btn->m_label->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+        }
+
+        Loader::get()->queueInMainThread([this]
+        {
+            if (auto select = typeinfo_cast<CCMenuItemToggler*>(getChildByIDRecursive("select-toggler")))
+            {
+                auto btn1 = as<CCSprite*>(select->m_onButton->getNormalImage());
+                auto btn2 = as<CCSprite*>(select->m_offButton->getNormalImage());
+
+                btn1->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+                btn2->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+            }
+        });
         
         startDownload();
     }

@@ -1,11 +1,11 @@
 {
-    "geode": "3.4.0",
+    "geode": "3.8.1",
     "gd": { 
         "win": "2.206", 
         "android": "2.206",
         "mac": "2.206"
     },
-    "version": "v1.0.7",
+    "version": "v1.0.8",
     "id": "cdc.level_thumbnails",
     "name": "Level Thumbnails",
     "developer": "cdc",
@@ -32,6 +32,47 @@
             "type": "int",
             "min": 0,
             "default": 50
+        },
+        "view-button-opacity": {
+            "name": "View Button Opacity",
+            "type": "float",
+            "description": "Change the opacity of the view button on the level",
+            "default": 1.0,
+            "min": 0,
+            "max": 1
+        },
+        "level-info-layer-header": {
+            "name": "Level Page Background",
+            "type": "title",
+            "description": "Sets the background of the level page to the levels thumbnail image"
+        },
+        "level-info-layer-bg": {
+            "name": "Enable Background",
+            "default": false,
+            "description": "Enabled seting the background of the level page to the levels thumbnail image",
+            "type": "bool"
+        },
+        "level-info-layer-bg-darken": {
+            "name": "Background Darken",
+            "type": "float",
+            "description": "Darken the background by this amount",
+            "default": 0.3,
+            "min": 0,
+            "max": 1
+        },
+        "level-info-layer-bg-blur-enabled": {
+            "name": "Blur Background",
+            "default": true,
+            "description": "Blurs the background",
+            "type": "bool"
+        },
+        "level-info-layer-bg-blur": {
+            "name": "Background Blur Quality",
+            "description": "Blurs the background by this amount",
+            "default": 3,
+            "type": "float",
+            "min": 0,
+            "max": 10
         }
     },
 
