@@ -90,10 +90,14 @@ class $modify(MyLevelCell, LevelCell) {
 
         if (auto view = typeinfo_cast<CCMenuItemSpriteExtra*>(getChildByIDRecursive("view-button")))
         {
-            auto btn = as<ButtonSprite*>(view->getNormalImage());
+            if (auto btn = typeinfo_cast<ButtonSprite*>(view->getNormalImage()))
+            {
+                if (btn->m_BGSprite)
+                    btn->m_BGSprite->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
 
-            btn->m_BGSprite->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
-            btn->m_label->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+                if (btn->m_label)
+                    btn->m_label->setOpacity(Mod::get()->getSettingValue<double>("view-button-opacity") * 255);
+            }
         }
 
         Loader::get()->queueInMainThread([this]
